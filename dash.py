@@ -82,7 +82,7 @@ elif opcao == "Reciclagem por Cidade":
         ORDER BY QNT_KG DESC
     """, conn)
 
-    st.title("🏙️ Reciclagem Total por Cidade")
+    st.title("Reciclagem Total por Cidade")
 
     st.markdown("""
     Visualização comparativa da **quantidade total de material reciclado (em Kg)** 
@@ -97,7 +97,7 @@ elif opcao == "Reciclagem por Cidade":
         x="QNT_KG",
         y="CIDADE",
         orientation="h",
-        title="🏗️ Total de Reciclagem por Cidade (Barras Horizontais)",
+        title="Total de Reciclagem por Cidade (Barras Horizontais)",
         labels={"QNT_KG": "Quantidade (Kg)", "CIDADE": "Cidade"},
         text_auto=".2s",
         color="CIDADE",
@@ -117,7 +117,7 @@ elif opcao == "Reciclagem por Cidade":
         df_cidade,
         x="CIDADE",
         y="QNT_KG",
-        title="🏙️ Total de Reciclagem por Cidade (Colunas Verticais)",
+        title="Total de Reciclagem por Cidade (Colunas Verticais)",
         labels={"QNT_KG": "Quantidade (Kg)", "CIDADE": "Cidade"},
         text_auto=".2s",
         color="CIDADE",
@@ -137,7 +137,7 @@ elif opcao == "Reciclagem por Cidade":
         df_cidade,
         values="QNT_KG",
         names="CIDADE",
-        title="🌍 Proporção de Reciclagem entre Cidades",
+        title="Proporção de Reciclagem entre Cidades",
         hole=0.35,
         color_discrete_sequence=cores_padrao
     )
@@ -156,7 +156,7 @@ elif opcao == "Reciclagem por Cidade":
 
     st.plotly_chart(fig_pie, use_container_width=True)
 
-    st.markdown("### 📋 Tabela Resumo dos Dados")
+    st.markdown("Tabela Resumo dos Dados")
     st.dataframe(
         df_cidade.style.format({"QNT_KG": "{:,.2f}"}),
         use_container_width=True
@@ -175,7 +175,7 @@ elif opcao == "Vendas dos Beneficios":
         ORDER BY NOME, VENDAS DESC
     """, conn)
 
-    st.title("💼 Vendas de Benefícios por Empresa")
+    st.title("Vendas de Benefícios por Empresa")
 
     st.markdown("""
     Visualize o desempenho de vendas dos benefícios oferecidos por cada empresa.
@@ -252,5 +252,5 @@ elif opcao == "Vendas dos Beneficios":
 
     st.plotly_chart(fig_rank, use_container_width=True)
 
-    st.markdown("### 📋 Tabela de Vendas")
+    st.markdown("Tabela de Vendas")
     st.dataframe(df_filtrado.style.format({"VENDAS": "{:,.0f}"}), use_container_width=True)
